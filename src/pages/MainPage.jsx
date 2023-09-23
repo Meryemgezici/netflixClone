@@ -7,19 +7,23 @@ import Hero from "../components/Hero"
 import MovieList from "../components/MovieList"
 
 const MainPage = () => {
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
+  const state = useSelector((store) => store.mainReducer);
 
-  useEffect(()=>{
-      dispatch(getMovies());
-      dispatch(getCategories())
-  },[]);
+  useEffect(() => {
+    dispatch(getMovies());
+    dispatch(getCategories())
+  }, []);
 
 
 
   return (
     <div>
-     <Hero/>
-     <MovieList/>
+      <Hero />
+      {
+        state.genres.map((genre)=><MovieList key={genre.id} genre={genre}/>)
+      }
+      
     </div>
   )
 }

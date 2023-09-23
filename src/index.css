@@ -5,3 +5,17 @@ body {
   background-color: #242424;
 }
 
+.movie{
+  max-width: 300px;
+  transition: 0.3s;
+  height:400px;
+}
+
+.movie:hover{
+  cursor: pointer;
+  scale: 1.03;
+}
+
+img{
+  object-fit: cover;
+}
